@@ -46,7 +46,7 @@ const readSite = async (dir) => {
 const blackList = [];
 
 (async () => {
-    await readSite('build');
+    await readSite('dist');
 
     const siteUrls = allRoots.map(root => root.replace('build/', baseUrl).replace('/index.html', ''));
 
@@ -66,7 +66,7 @@ const blackList = [];
 
     const sitemap = urlset.end({ pretty: true });
 
-    await asyncWriteFile('build/sitemap.xml', sitemap);
+    await asyncWriteFile('dist/sitemap.xml', sitemap);
 
     console.log('🙂 Successfully built sitemap.xml in build directory');
 })();
